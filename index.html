@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Viewport meta tag -->
   <title>Data Display with Filter</title>
   <style>
     /* CSS styles */
@@ -50,8 +51,8 @@
     }
 
     button {
-      margin-right: 10px; 
-      margin-bottom: 10px; 
+      margin-right: 10px; /* This adds space to the right of each button */
+      margin-bottom: 10px; /* This adds space below each button */
       padding: 12px 30px;
       cursor: pointer;
       background-color: #4CAF50;
@@ -59,7 +60,7 @@
       border: none;
       border-radius: 5px;
       outline: none;
-      font-size: 20px;
+      font-size: 16px;
     }
 
     table {
@@ -84,18 +85,39 @@
       font-weight: bold;
     }
 
-    .filter-btns {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
-      gap: 10px;
-    }
-
+    /* Mobile responsiveness */
     @media (max-width: 600px) {
+      /* Adjust the table font size for smaller screens */
       table {
         font-size: 12px;
       }
+
+      /* Adjust button size and layout for small screens */
+      button {
+        padding: 10px 20px; /* Make buttons smaller */
+        font-size: 14px; /* Adjust font size */
+      }
+
+      /* Adjust the loader size */
+      .loader {
+        height: 200px; /* Reduce loader height for smaller screens */
+      }
+
+      /* Adjust the container margin */
+      .container {
+        margin: 10px; /* Add some margin around the container */
+      }
+
+      /* Adjust padding inside the table cells for mobile */
+      th, td {
+        padding: 8px;
+      }
+
+      /* Hide filter buttons if they are too big for the screen */
       .filter-btns {
-        grid-template-columns: repeat(3, 1fr); /* 3 buttons per row on mobile */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
       }
     }
   </style>
@@ -115,6 +137,7 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
   <script>
+    // JavaScript code
     let allButtons;
     let originalData;
 
