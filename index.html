@@ -2,30 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Display with Filter</title>
   <style>
-    /* General styles */
+    /* CSS styles */
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
+      margin: 2px;
       background-color: #f7f7f7;
     }
 
     .container {
-      margin: 10px;
+      margin-bottom: 20px;
       background-color: #fff;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      overflow-x: auto; /* Allow horizontal scrolling for tables */
+      box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
+      padding: 3px;
+      overflow-x: auto;
+      
     }
 
     .loader {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 200px;
+      height: 300px;
     }
 
     .ball {
@@ -51,23 +51,25 @@
     }
 
     button {
+      margin-right: 10px; /* This adds space to the right of each button */
+  margin-bottom: 10px; /* This adds space below each button */
+      
       padding: 12px 30px;
-      margin-bottom: 10px;
+      cursor: pointer;
       background-color: #4CAF50;
       color: white;
       border: none;
       border-radius: 5px;
+      outline: none;
       font-size: 16px;
-      cursor: pointer;
-      width: 100%; /* Full width for mobile-friendly buttons */
     }
 
     table {
-      width: 100%;
       border-collapse: collapse;
+      width: 100%;
       display: block;
-      overflow-x: auto; /* Allow horizontal scroll */
-      font-size: 14px;
+      overflow-x: auto;
+      font-size: 16px;
     }
 
     th, td {
@@ -85,14 +87,13 @@
       font-weight: bold;
     }
 
-    /* Mobile responsiveness */
-    @media (max-width: 600px) {
+     @media (max-width: 600px) {
       body {
-        font-size: 14px;
+        font-size: 20px;
       }
 
       table {
-        font-size: 12px;
+        font-size: 20px;
         padding: 5px;
       }
 
@@ -101,7 +102,7 @@
       }
 
       button {
-        font-size: 14px;
+        font-size: 20px;
         padding: 10px;
       }
 
@@ -114,7 +115,7 @@
     /* Tablets and larger screens */
     @media (min-width: 601px) {
       button {
-        font-size: 16px;
+        font-size: 20px;
         padding: 12px 30px;
       }
     }
@@ -133,9 +134,9 @@
     <div class="filter-btns hide" id="filterButtons"></div>
     <table class="hide" id="data-table"></table>
   </div>
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
   <script>
+    // JavaScript code
     let allButtons;
     let originalData;
 
